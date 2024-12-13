@@ -8,14 +8,13 @@ class StudentType : public PersonType {
 
     public:
 
-    StudentType(string, string,     // ad soyad
-                int,                // öğrenci numarası
-                char,               // isTuitionPaid
-                size_t);            // numberOfCourses
-/*
-    StudentType(string, string);
+    StudentType(string = "",
+                string = "",              // ad soyad
+                int = 0,                // öğrenci numarası
+                char = '*',               // isTuitionPaid
+                size_t = 0);            // numberOfCourses
+
     void setInfo();
-*/  
 
     void setName();
     string getName();

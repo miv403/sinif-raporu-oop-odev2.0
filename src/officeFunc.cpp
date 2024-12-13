@@ -2,12 +2,9 @@
 #include "studentType.h"
 #include <cstddef>
 #include <fstream>
-#include <iostream>
 #include <string>
 
 Office::Office(ifstream& file) {
-
-    studentsHead = nullptr;
 
     string line;
 
@@ -18,6 +15,8 @@ Office::Office(ifstream& file) {
     numberOfStudents = stoi(tokens.tokens[0]);
     price = stoi(tokens.tokens[1]);
 
+    students = new StudentType[numberOfStudents];
+
     for(size_t i = 0; i < numberOfStudents; ++i) {
         
         getline(file,line);
@@ -26,22 +25,15 @@ Office::Office(ifstream& file) {
 
         int courseCount = stoi(tokens.tokens[4]);
 
-        StudentType* student = 
-        new StudentType(tokens.tokens[0],
-                        tokens.tokens[1],
-                        stoi(tokens.tokens[2]),
-                        tokens.tokens[3].at(0),
-                        stoi(tokens.tokens[4]));
-
-
+        //students[i].setInfo();
+    
         for(size_t j = 0; j < courseCount; ++j) {
 
             getline(file, line);
             tokens = parseLine(line);
-
-
-
             
+            // students[i].setCourse();
+
         }
 
         // getline() // --- atlamak için
@@ -82,39 +74,3 @@ TokenContainer Office::parseLine(string& line) {
 
 }
 
-
-void Office::removeFront()			// remove front item
-{
-    if (empty())
-    {
-        cout << "List is empty !" << endl;
-        return;
-    }
-
-    StudentType* temp = studentsHead;	// save current studentsHead
-    studentsHead = studentsHead->next;	// skip over old studentsHead
-    delete temp;						// delete the old studentsHead
-}
-
-void Office::addBack(StudentType* v)
-{
-    v->next			= NULL;
-
-    if (studentsHead == NULL) studentsHead = v;
-    else
-    {
-        StudentType* first = studentsHead;
-        while (first->next != NULL) first = first->next;
-        first->next = v;
-    }
-}
-
-bool Office::empty() const							// is list empty?
-{
-    return studentsHead == NULL;
-}
-
-Office::~Office()							// destructor
-{
-    while (!empty()) removeFront();
-}

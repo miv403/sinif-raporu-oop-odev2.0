@@ -9,6 +9,11 @@ class TokenContainer {
     public:
         string* tokens;
         size_t size;
+    string at(size_t i) {
+        if(i < size)
+            return tokens[i];
+        return "";
+    }
 };
 
 class Office {
@@ -17,11 +22,6 @@ class Office {
     public:
 
     Office(ifstream&);
-    ~Office();
-    void removeFront();
-    void addBack(StudentType*);
-    bool empty() const;
-
 
     private:
     
@@ -30,7 +30,7 @@ class Office {
     size_t numberOfStudents;
     int price;
 
-    StudentType* studentsHead;
+    StudentType* students;
 
 };
 

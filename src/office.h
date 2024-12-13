@@ -23,6 +23,8 @@ class Office {
 
     Office(ifstream&);
 
+    void print();
+
     private:
     
     TokenContainer parseLine(string&);

@@ -1,0 +1,17 @@
+3 345
+Lisa Miller 890238 Y 4
+Mathematics MTH345 4 A
+Physics PHY357 3 B
+ComputerSci CSC478 3 B
+History HIS356 3 A
+---
+Ahmet Emin 434340 Y 4
+OOP COM2009 3 A
+Physics FIZ1002 4 A
+DiscereteMath BIL2015 3 A
+English-I ENG1001 3 C
+---
+Ziya Mandirali 425422 Y 2
+DigitalDesign COM2007 3 A
+ElectronicCircuits BIL2007 2 A
+---

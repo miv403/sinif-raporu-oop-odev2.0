@@ -38,8 +38,8 @@ Office::Office(ifstream& file) {
             
             students[i].setCourse(tokens.at(0),
                                     tokens.at(1),
-                                    stoi(tokens.at(2)),
                                     tokens.at(3).at(0),
+                                    stoi(tokens.at(2)),
                                     j);
 
         }
@@ -82,3 +82,8 @@ TokenContainer Office::parseLine(string& line) {
 
 }
 
+void Office::print(){
+    for(int i=0; i < numberOfStudents; ++i){
+        students[i].print(price);
+    }
+}

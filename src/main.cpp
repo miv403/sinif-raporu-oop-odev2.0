@@ -12,6 +12,7 @@ int main() {
     inputFile.open(DOSYA);
 
     Office office(inputFile);
+    office.print();
 
     return 0;
 }

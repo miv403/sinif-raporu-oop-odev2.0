@@ -49,5 +49,9 @@ void CourseType::print(ofstream& file){
     file << courseName << " " << courseNo << " " << courseGrade << " " << to_string(courseCredits)<<endl;
 }
 
+void CourseType::print(){
+    cout << courseNo << " " << courseName << " " << courseCredits << " " << courseGrade<<endl;
+}
+
 CourseType::~CourseType(){}
 

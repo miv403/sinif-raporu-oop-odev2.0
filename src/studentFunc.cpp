@@ -1,6 +1,7 @@
-#include "courseType.h"
-#include "personType.h"
+#include "courseTypeFunc.cpp"
 #include "studentType.h"
+#include "personFunc.cpp"
+#include <iostream>
 #include <cstddef>
 
 StudentType::StudentType(string firstName,
@@ -64,5 +65,22 @@ double StudentType::totalCredits() {
     }
 
     return total;
+
+}
+
+int StudentType::billingAmount(){
+    return 0;
+}
+
+void StudentType::print(int price){
+    cout <<"Student Name: " <<firstName << " " << lastName << endl; 
+    cout << "Student ID: " << sID << endl;
+    cout<< "Number of courses enrolled: " << numberOfCourses << endl;
+    cout<< "Course No Course Name Credits Grade" << endl;
+    for(int i=0; i< numberOfCourses; ++i){
+        coursesEnrolled[i].print();
+    }
+    cout << "Total number of credits: " << totalCredits() << endl; 
+    cout << "Mid-Semester GPA: " << getGPA() << endl;
 
 }

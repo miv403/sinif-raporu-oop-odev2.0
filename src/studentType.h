@@ -27,7 +27,7 @@ class StudentType : public PersonType {
 
     void setCourse(string, string, char, int, size_t i);
 
-    StudentType* next;
+    void print(int);
 
     private:
 

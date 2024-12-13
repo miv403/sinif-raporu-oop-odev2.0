@@ -17,7 +17,7 @@ class CourseType {
 
     void setCourseInfo(string, string, int, char);
     void print(ofstream&); // one parameter
-    //void print(int, int); // two parameter (int geçici)
+    void print();    //void print(int, int); // two parameter (int geçici)
     int getCredits();
     string getCourseNumber();
     int getGrade();

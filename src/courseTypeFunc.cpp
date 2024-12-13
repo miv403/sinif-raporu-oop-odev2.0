@@ -1,5 +1,6 @@
 #include "courseType.h"
 #include <fstream>
+#include <iostream>
 
 CourseType::CourseType(string course, string no, char grade, int credit)
 : courseName(course), courseNo(no), courseGrade(grade), courseCredits(credit) {}
@@ -12,8 +13,28 @@ int CourseType::getCredits(){
     return courseCredits;
 }
 
-char CourseType::getGrade(){
-    return courseGrade;
+int CourseType::getGrade(){
+    switch (courseGrade) {
+        case 'A':
+            return 4;
+            break;
+        case 'B':
+            return 3;
+            break;
+        case 'C':
+            return 2;
+            break;
+        case 'D':
+            return 1;
+            break;
+        case 'F':
+            return 0;
+            break;
+        default:
+            cerr << "default???" << __LINE__ << endl;
+            return 0;
+            break;
+    }
 }
 
 void CourseType::setCourseInfo(string course,

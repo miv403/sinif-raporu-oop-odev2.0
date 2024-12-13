@@ -41,3 +41,28 @@ void StudentType::setInfo(string first, string last, string no, char paid, size_
 
     coursesEnrolled = new CourseType[numberOfCourses];
 }
+
+double StudentType::getGPA() {
+
+    double totalPoints = 0;
+    for(size_t i = 0; i < numberOfCourses; ++i) {
+        totalPoints += 
+                coursesEnrolled[i].getCredits() * 
+                coursesEnrolled[i].getGrade();
+    }
+
+    return (totalPoints / totalCredits());
+
+}
+
+double StudentType::totalCredits() {
+
+    double total= 0;
+
+    for(size_t i = 0; i < numberOfCourses; ++i) {
+        total += coursesEnrolled[i].getCredits();
+    }
+
+    return total;
+
+}

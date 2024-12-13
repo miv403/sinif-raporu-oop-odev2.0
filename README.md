@@ -49,6 +49,12 @@ History HIS356 3 A
 ......
 ```
 
+- A = 4
+- B = 3
+- C = 2
+- D = 1
+- F = 0
+
 **> Her öğrenci için beklenen çıkış dosyası aşağıdaki formda olmalıdır**:
 
 ```text

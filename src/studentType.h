@@ -22,14 +22,21 @@ class StudentType : public PersonType {
 
     void setName();
     string getName();
+
+
+
     void setCourse(string, string, char, int, size_t i);
-    int billingAmount(int); // 5. fatura tutarının hesaplanması
 
     StudentType* next;
 
     private:
 
+    int billingAmount();     // 5. fatura tutarının hesaplanması
     void sortCourses();
+    double getGPA();            // not ortalama hesaplama
+    double totalCredits();        // toplam kredi saat hesaplama
+
+
     string sID;
     size_t numberOfCourses;
     bool isTuitionPaid;

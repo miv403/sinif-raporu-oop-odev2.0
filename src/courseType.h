@@ -20,7 +20,7 @@ class CourseType {
     //void print(int, int); // two parameter (int geçici)
     int getCredits();
     string getCourseNumber();
-    char getGrade();
+    int getGrade();
 
     private:
                         // examples;

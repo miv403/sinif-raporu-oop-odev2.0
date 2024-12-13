@@ -1,4 +1,4 @@
-#include <courseType.h>
+#include "courseType.h"
 #include <fstream>
 
 CourseType::CourseType(string course, string no, char grade, int credit)
@@ -16,7 +16,8 @@ char CourseType::getGrade(){
     return courseGrade;
 }
 
-void CourseType::setCourseInfo(string course, string no, char grade, int credit){
+void CourseType::setCourseInfo(string course,
+                                string no, int credit, char grade){
     courseName=course;
     courseNo=no;
     courseGrade=grade;

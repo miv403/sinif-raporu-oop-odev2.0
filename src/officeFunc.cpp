@@ -25,18 +25,26 @@ Office::Office(ifstream& file) {
 
         int courseCount = stoi(tokens.tokens[4]);
 
-        //students[i].setInfo();
+        students[i].setInfo(tokens.at(0),           //name
+                            tokens.at(1),           //lastname
+                            tokens.at(2),           //id
+                            tokens.at(3).at(0), //isPaid
+                            courseCount);               //numberOfCourse
     
         for(size_t j = 0; j < courseCount; ++j) {
 
             getline(file, line);
             tokens = parseLine(line);
             
-            // students[i].setCourse();
+            students[i].setCourse(tokens.at(0),
+                                    tokens.at(1),
+                                    stoi(tokens.at(2)),
+                                    tokens.at(3).at(0),
+                                    j);
 
         }
 
-        // getline() // --- atlamak için
+        getline(file, line); // --- atlamak için
     }
 }
 

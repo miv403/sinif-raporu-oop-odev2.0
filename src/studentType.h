@@ -10,11 +10,15 @@ class StudentType : public PersonType {
 
     StudentType(string = "",
                 string = "",              // ad soyad
-                int = 0,                // öğrenci numarası
+                string = "",                // öğrenci numarası
                 char = '*',               // isTuitionPaid
                 size_t = 0);            // numberOfCourses
 
-    void setInfo();
+    void setInfo(string,
+                string,              // ad soyad
+                string,                // öğrenci numarası
+                char,               // isTuitionPaid
+                size_t);
 
     void setName();
     string getName();
@@ -26,7 +30,7 @@ class StudentType : public PersonType {
     private:
 
     void sortCourses();
-    int sID;
+    string sID;
     size_t numberOfCourses;
     bool isTuitionPaid;
     CourseType* coursesEnrolled;

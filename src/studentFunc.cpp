@@ -5,7 +5,7 @@
 
 StudentType::StudentType(string firstName,
                             string lastName,
-                            int sID,
+                            string sID,
                             char isPaid,
                             size_t numberOfCourses)
     : PersonType(firstName, lastName),
@@ -13,7 +13,7 @@ StudentType::StudentType(string firstName,
 
     isTuitionPaid = (isPaid == 'Y');
 
-    coursesEnrolled = new CourseType[numberOfCourses];
+
 
 }
 
@@ -37,3 +37,13 @@ StudentType::StudentType(string first, string last)
 
 }
 */
+
+void StudentType::setInfo(string first, string last, string no, char paid, size_t  j){
+    firstName=first;
+    lastName=last;
+    sID=no;
+    isTuitionPaid = (paid == 'Y');
+    numberOfCourses=j;
+
+    coursesEnrolled = new CourseType[numberOfCourses];
+}   

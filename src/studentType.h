@@ -12,12 +12,17 @@ class StudentType : public PersonType {
                 int,                // öğrenci numarası
                 char,               // isTuitionPaid
                 size_t);            // numberOfCourses
+/*
+    StudentType(string, string);
+    void setInfo();
+*/  
 
     void setName();
     string getName();
-
+    void setCourse(string, string, char, int, size_t i);
     int billingAmount(int); // 5. fatura tutarının hesaplanması
 
+    StudentType* next;
 
     private:
 
@@ -28,5 +33,7 @@ class StudentType : public PersonType {
     CourseType* coursesEnrolled;
 
 };
+
+
 
 #endif

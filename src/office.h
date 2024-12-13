@@ -3,27 +3,34 @@
 
 #include "studentType.h"
 #include <cstddef>
+#include <string>
 
-class LineContainer {
-    string* tokens;
-    size_t size;
+class TokenContainer {
+    public:
+        string* tokens;
+        size_t size;
 };
 
 class Office {
 
     
+    public:
 
     Office(ifstream&);
-
-    LineContainer* parseLine();
+    ~Office();
+    void removeFront();
+    void addBack(StudentType*);
+    bool empty() const;
 
 
     private:
+    
+    TokenContainer parseLine(string&);
 
     size_t numberOfStudents;
     int price;
 
-    StudentType* students;
+    StudentType* studentsHead;
 
 };
 

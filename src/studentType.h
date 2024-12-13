@@ -25,7 +25,11 @@ class StudentType : public PersonType {
 
 
 
-    void setCourse(string, string, char, int, size_t i);
+    void setCourse(string,
+                    string,
+                    int, 
+                    char,
+                    size_t i);
 
     void print(int);
 

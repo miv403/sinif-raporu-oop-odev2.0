@@ -3,6 +3,7 @@
 #include <cstddef>
 #include <fstream>
 #include <string>
+#include <iostream>
 
 Office::Office(ifstream& file) {
 
@@ -23,7 +24,13 @@ Office::Office(ifstream& file) {
         
         tokens = parseLine(line);
 
-        int courseCount = stoi(tokens.tokens[4]);
+            #ifdef DEBUG
+            for(int i = 0 ; i < tokens.size; ++i) { 
+                cout << tokens.at(i) << endl;
+            }
+            #endif
+
+        int courseCount = stoi(tokens.at(4));
 
         students[i].setInfo(tokens.at(0),           //name
                             tokens.at(1),           //lastname
@@ -34,12 +41,17 @@ Office::Office(ifstream& file) {
         for(size_t j = 0; j < courseCount; ++j) {
 
             getline(file, line);
+
             tokens = parseLine(line);
-            
+            #ifdef DEBUG
+            for(int i = 0 ; i < tokens.size; ++i) { 
+                cout << tokens.at(i) << endl;
+            }
+            #endif
             students[i].setCourse(tokens.at(0),
                                     tokens.at(1),
-                                    tokens.at(3).at(0),
                                     stoi(tokens.at(2)),
+                                    tokens.at(3).at(0),
                                     j);
 
         }
@@ -70,7 +82,7 @@ TokenContainer Office::parseLine(string& line) {
 
     size_t i = 0;
 
-    while ((pos = line.find(delimiter)) != string::npos) {
+    while((pos = line.find(delimiter)) != string::npos) {
         token = line.substr(0, pos);
         tokens[i] = token;
         line.erase(0, pos + delimiter.length());
@@ -85,5 +97,6 @@ TokenContainer Office::parseLine(string& line) {
 void Office::print(){
     for(int i=0; i < numberOfStudents; ++i){
         students[i].print(price);
+        cout << endl;
     }
 }

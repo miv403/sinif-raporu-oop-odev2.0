@@ -12,7 +12,7 @@ class CourseType {
     CourseType(string courseName = " ",
                 string courseNo = " ",
                 char courseGrade = '*',
-                int courseCredits = 0);
+                int courseCredit = 0);
     ~CourseType();
 
     void setCourseInfo(string, string, int, char);
@@ -26,8 +26,8 @@ class CourseType {
                         // examples;
     string courseName;  // ComputerSci
     string courseNo;    // CSC478
+    int courseCredit;  // 3
     char courseGrade;   // A
-    int courseCredits;  // 3
 
 };
 

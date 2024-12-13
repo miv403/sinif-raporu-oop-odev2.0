@@ -3,14 +3,14 @@
 #include <iostream>
 
 CourseType::CourseType(string course, string no, char grade, int credit)
-: courseName(course), courseNo(no), courseGrade(grade), courseCredits(credit) {}
+: courseName(course), courseNo(no), courseGrade(grade), courseCredit(credit) {}
 
 string CourseType::getCourseNumber(){
     return courseNo;
 }
 
 int CourseType::getCredits(){
-    return courseCredits;
+    return courseCredit;
 }
 
 int CourseType::getGrade(){
@@ -37,20 +37,23 @@ int CourseType::getGrade(){
     }
 }
 
-void CourseType::setCourseInfo(string course,
-                                string no, int credit, char grade){
-    courseName=course;
-    courseNo=no;
-    courseGrade=grade;
-    courseCredits=credit;
+void CourseType::setCourseInfo(string name,
+                                string no,
+                                int credit,
+                                char grade){
+    courseName = name;
+    courseNo = no ;
+    courseCredit = credit;
+    courseGrade = grade;
+
 }
 
 void CourseType::print(ofstream& file){
-    file << courseName << " " << courseNo << " " << courseGrade << " " << to_string(courseCredits)<<endl;
+ //   file << courseName << " " << courseNo << " " << courseGrade << " " << to_string(courseCredits)<<endl;
 }
 
 void CourseType::print(){
-    cout << courseNo << " " << courseName << " " << courseCredits << " " << courseGrade<<endl;
+    cout << courseNo << " " << courseName << " " << courseCredit << " " << courseGrade<<endl;
 }
 
 CourseType::~CourseType(){}

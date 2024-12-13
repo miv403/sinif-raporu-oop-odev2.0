@@ -12,7 +12,7 @@ class TokenContainer {
     string at(size_t i) {
         if(i < size)
             return tokens[i];
-        return "";
+        return "0";
     }
 };
 

@@ -16,14 +16,15 @@ StudentType::StudentType(string firstName,
 
 void StudentType::setCourse(string courseName,
                             string courseNo,
-                            char courseGrade,
                             int courseCredits,
+                            char courseGrade,
                             size_t i) {
 
     coursesEnrolled[i].setCourseInfo(courseName,
-                                        courseNo,
-                                        courseGrade,
-                                        courseCredits);
+                                    courseNo,
+                                    courseCredits,
+                                    courseGrade);
+
 }
 
 /*
@@ -33,7 +34,7 @@ StudentType::StudentType(string first, string last)
 }
 */
 
-void StudentType::setInfo(string first, string last, string no, char paid, size_t  j){
+void StudentType::setInfo(string first, string last, string no, char paid, size_t j){
     firstName=first;
     lastName=last;
     sID=no;

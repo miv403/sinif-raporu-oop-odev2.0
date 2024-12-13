@@ -70,14 +70,20 @@ double StudentType::totalCredits() {
 }
 
 int StudentType::billingAmount(){
+    // TODO ŞUNU YAZ
     return 0;
 }
 
 void StudentType::print(int price){
+
+    // TODO sortCourses()
+    // TODO DOSYAYA YAZMA
+    // TODO if(isPaid) ... else { billigAmount}
+
     cout <<"Student Name: " <<firstName << " " << lastName << endl; 
     cout << "Student ID: " << sID << endl;
-    cout<< "Number of courses enrolled: " << numberOfCourses << endl;
-    cout<< "Course No Course Name Credits Grade" << endl;
+    cout << "Number of courses enrolled: " << numberOfCourses << endl;
+    cout << "Course No Course Name Credits Grade" << endl;
     for(int i=0; i< numberOfCourses; ++i){
         coursesEnrolled[i].print();
     }

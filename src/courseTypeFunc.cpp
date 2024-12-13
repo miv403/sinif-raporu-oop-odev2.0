@@ -53,6 +53,8 @@ void CourseType::print(ofstream& file){
 }
 
 void CourseType::print(){
+    // TODO HİZLAMA
+    // TODO DOSYAYA YAZMA
     cout << courseNo << " " << courseName << " " << courseCredit << " " << courseGrade<<endl;
 }
 

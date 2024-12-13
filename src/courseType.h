@@ -15,11 +15,11 @@ class CourseType {
                 int courseCredits = 0);
     ~CourseType();
 
-    void setCourseInfo();
-    void print(int); // one parameter
-    void print(int, int); // two parameter (int geçici)
+    void setCourseInfo(string, string, char, int);
+    void print(ofstream&); // one parameter
+    //void print(int, int); // two parameter (int geçici)
     int getCredits();
-    int getCourseNumber();
+    string getCourseNumber();
     char getGrade();
 
     private:

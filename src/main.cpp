@@ -3,6 +3,7 @@
 #include <fstream>
 
 #define DOSYA "./data/input.txt"
+#define CIKTI "./data/output.txt"
 
 using namespace std;
 
@@ -12,7 +13,10 @@ int main() {
     inputFile.open(DOSYA);
 
     Office office(inputFile);
-    office.print();
+
+    ofstream outputFile(CIKTI);
+
+    office.print(outputFile);
 
     return 0;
 }

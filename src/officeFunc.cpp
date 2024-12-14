@@ -97,7 +97,6 @@ TokenContainer Office::parseLine(string& line) {
 }
 
 void Office::print(){
-    // TODO DOSYAYA YAZMAYA
     for(int i=0; i < numberOfStudents; ++i){
         students[i].print(price);
         cout << endl;
@@ -106,8 +105,7 @@ void Office::print(){
 
 void Office::print(ofstream& file){
     for(int i=0; i< numberOfStudents; ++i){
-        students[i].print(price);
+        students[i].print(file, price);
         file << endl;
     }
-
 }

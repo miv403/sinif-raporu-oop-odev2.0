@@ -78,9 +78,6 @@ int StudentType::billingAmount(int price){
 
 void StudentType::print(int price){
 
-    // TODO sortCourses()
-    // TODO DOSYAYA YAZMA
-    // TODO if(isPaid) ... else { billigAmount}
 
     sortCourses();
 

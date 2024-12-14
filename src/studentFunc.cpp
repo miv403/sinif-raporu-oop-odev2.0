@@ -2,6 +2,7 @@
 #include "studentType.h"
 #include "personFunc.cpp"
 #include <iostream>
+#include <fstream>
 #include <cstddef>
 
 StudentType::StudentType(string firstName,
@@ -69,9 +70,10 @@ double StudentType::totalCredits() {
 
 }
 
-int StudentType::billingAmount(){
-    // TODO ŞUNU YAZ
-    return 0;
+int StudentType::billingAmount(int price){
+    int bill=0;
+    bill=price*totalCredits();
+    return bill;
 }
 
 void StudentType::print(int price){
@@ -80,7 +82,8 @@ void StudentType::print(int price){
     // TODO DOSYAYA YAZMA
     // TODO if(isPaid) ... else { billigAmount}
 
-    cout <<"Student Name: " <<firstName << " " << lastName << endl; 
+    if(isTuitionPaid){  
+    cout<<"Student Name: " <<firstName << " " << lastName << endl; 
     cout << "Student ID: " << sID << endl;
     cout << "Number of courses enrolled: " << numberOfCourses << endl;
     cout << "Course No Course Name Credits Grade" << endl;
@@ -89,5 +92,26 @@ void StudentType::print(int price){
     }
     cout << "Total number of credits: " << totalCredits() << endl; 
     cout << "Mid-Semester GPA: " << getGPA() << endl;
+    }
 
+    else{
+        cout <<firstName << " "<<lastName<< " need to pay the tuition to see the courses and the grades. Total fee: " << billingAmount(price)  << "₺"<< endl;
+    }
 }
+ void StudentType::print(ofstream& file, int price){
+    if(isTuitionPaid){  
+    file <<"Student Name: " <<firstName << " " << lastName << endl; 
+    file << "Student ID: " << sID << endl;
+    file << "Number of courses enrolled: " << numberOfCourses << endl;
+    file << "Course No Course Name Credits Grade" << endl;
+    for(int i=0; i< numberOfCourses; ++i){
+        coursesEnrolled[i].print(file);
+    }
+    file << "Total number of credits: " << totalCredits() << endl; 
+    file << "Mid-Semester GPA: " << getGPA() << endl;
+    }
+
+    else{
+        file <<firstName << " "<<lastName<< " need to pay the tuition to see the courses and the grades. Total fee: " << billingAmount(price)  << "₺"<< endl;
+    }
+ }

@@ -49,7 +49,7 @@ void CourseType::setCourseInfo(string name,
 }
 
 void CourseType::print(ofstream& file){
- //   file << courseName << " " << courseNo << " " << courseGrade << " " << to_string(courseCredits)<<endl;
+    file << courseName << " " << courseNo << " " << courseGrade << " " << courseCredit<<endl;
 }
 
 void CourseType::print(){

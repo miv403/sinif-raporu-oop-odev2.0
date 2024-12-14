@@ -32,10 +32,11 @@ class StudentType : public PersonType {
                     size_t i);
 
     void print(int);
+    void print(ofstream&, int);
 
     private:
 
-    int billingAmount();     // 5. fatura tutarının hesaplanması
+    int billingAmount(int);     // 5. fatura tutarının hesaplanması
     void sortCourses();
     double getGPA();            // not ortalama hesaplama
     double totalCredits();        // toplam kredi saat hesaplama

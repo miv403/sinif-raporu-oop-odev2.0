@@ -24,6 +24,7 @@ class Office {
     Office(ifstream&);
 
     void print();
+    void print(ofstream&);
 
     private:
     

@@ -101,3 +101,11 @@ void Office::print(){
         cout << endl;
     }
 }
+
+void Office::print(ofstream& file){
+    for(int i=0; i< numberOfStudents; ++i){
+        students[i].print(price);
+        file << endl;
+    }
+
+}

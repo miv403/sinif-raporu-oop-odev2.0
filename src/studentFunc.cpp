@@ -82,6 +82,8 @@ void StudentType::print(int price){
     // TODO DOSYAYA YAZMA
     // TODO if(isPaid) ... else { billigAmount}
 
+    sortCourses();
+
     if(isTuitionPaid){  
     cout<<"Student Name: " <<firstName << " " << lastName << endl; 
     cout << "Student ID: " << sID << endl;
@@ -98,7 +100,10 @@ void StudentType::print(int price){
         cout <<firstName << " "<<lastName<< " need to pay the tuition to see the courses and the grades. Total fee: " << billingAmount(price)  << "$"<< endl;
     }
 }
- void StudentType::print(ofstream& file, int price){
+void StudentType::print(ofstream& file, int price){
+
+    sortCourses();
+
     if(isTuitionPaid){  
     file <<"Student Name: " <<firstName << " " << lastName << endl; 
     file << "Student ID: " << sID << endl;
@@ -114,4 +119,24 @@ void StudentType::print(int price){
     else{
         file <<firstName << " "<<lastName<< " need to pay the tuition to see the courses and the grades. Total fee: " << billingAmount(price)  << "$"<< endl;
     }
- }
+}
+
+void StudentType::sortCourses() {
+
+    bool swapped;
+
+    for (int i = 0; i < numberOfCourses - 1; i++) {
+        swapped = false;
+        for (int j = 0; j < numberOfCourses - i - 1; j++) {
+            if (coursesEnrolled[j].getCourseNumber() > coursesEnrolled[j + 1].getCourseNumber()) {
+                swap(coursesEnrolled[j], coursesEnrolled[j + 1]);
+                swapped = true;
+            }
+        }
+
+        // If no two elements were swapped, then break
+        if (!swapped)
+            break;
+    }
+
+}

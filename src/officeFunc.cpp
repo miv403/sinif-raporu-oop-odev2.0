@@ -11,7 +11,7 @@ Office::Office(ifstream& file) {
 
     getline(file, line);
 
-    TokenContainer tokens = parseLine(line);
+    TokenContainer tokens = parseLine(line); // TODO PTR
 
     numberOfStudents = stoi(tokens.tokens[0]);
     price = stoi(tokens.tokens[1]);
@@ -31,6 +31,8 @@ Office::Office(ifstream& file) {
             #endif
 
         int courseCount = stoi(tokens.at(4));
+
+        
 
         students[i].setInfo(tokens.at(0),           //name
                             tokens.at(1),           //lastname

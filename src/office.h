@@ -18,7 +18,7 @@ class TokenContainer {
 
 class Office {
 
-    
+    // TODO destructor!
     public:
 
     Office(ifstream&);

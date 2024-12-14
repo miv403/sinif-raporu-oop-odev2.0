@@ -23,7 +23,7 @@ void Office::readFile(ifstream& file) {
 
     getline(file, line);
 
-    TokenContainer* tokens = parseLine(line); // TODO PTR
+    TokenContainer* tokens = parseLine(line); 
 
     numberOfStudents = stoi(tokens->at(0));
     price = stoi(tokens->at(1));

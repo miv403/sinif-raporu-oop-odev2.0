@@ -28,7 +28,7 @@ void CourseType::setCourseInfo( const string& name,
 }
 
 void CourseType::print(ofstream& file) const {
-    file << courseName << " " << courseNo << " " << courseGrade << " " << courseCredit<<endl;
+    file << courseNo << " " << courseName << " " << courseCredit << " " << courseGrade<<endl;
 }
 
 void CourseType::print() const {

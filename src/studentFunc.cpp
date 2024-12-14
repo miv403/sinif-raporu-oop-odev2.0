@@ -95,7 +95,7 @@ void StudentType::print(int price){
     }
 
     else{
-        cout <<firstName << " "<<lastName<< " need to pay the tuition to see the courses and the grades. Total fee: " << billingAmount(price)  << "₺"<< endl;
+        cout <<firstName << " "<<lastName<< " need to pay the tuition to see the courses and the grades. Total fee: " << billingAmount(price)  << "$"<< endl;
     }
 }
  void StudentType::print(ofstream& file, int price){
@@ -112,6 +112,6 @@ void StudentType::print(int price){
     }
 
     else{
-        file <<firstName << " "<<lastName<< " need to pay the tuition to see the courses and the grades. Total fee: " << billingAmount(price)  << "₺"<< endl;
+        file <<firstName << " "<<lastName<< " need to pay the tuition to see the courses and the grades. Total fee: " << billingAmount(price)  << "$"<< endl;
     }
  }

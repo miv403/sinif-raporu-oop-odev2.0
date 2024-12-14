@@ -2,6 +2,7 @@ Lisa Miller need to pay the tuition to see
 the courses and the grades.
 Total fee:                         4485$
 
+*****************************************
 Student Name:                 Ahmet Emin
 Student ID:                       434340
 Number of courses enrolled:            4
@@ -16,6 +17,7 @@ Number of courses enrolled:            4
 Total number of credits:              13
 Mid-Semester GPA:                3.53846
 
+*****************************************
 Student Name:             Ziya Mandirali
 Student ID:                       425422
 Number of courses enrolled:            3
@@ -29,3 +31,70 @@ Number of courses enrolled:            3
 Total number of credits:               8
 Mid-Semester GPA:                      4
 
+*****************************************
+Student Name:            Ceylan Adiyaman
+Student ID:                        13890
+Number of courses enrolled:            4
+
+  Course No  Course Name  Credits  Grade
+-----------------------------------------
+    BIL2014   Algorithms        4      F
+    COM2014  Programming        3      C
+    HIS2003      History        2      A
+    MAT2001         Math        1      C
+
+Total number of credits:              10
+Mid-Semester GPA:                    1.6
+
+*****************************************
+Student Name:             Nurullah Engin
+Student ID:                        13945
+Number of courses enrolled:            5
+
+  Course No  Course Name  Credits  Grade
+-----------------------------------------
+    BIL2014   Algorithms        1      F
+    BIL2016   Statistics        1      F
+    COM2004     Automata        3      F
+    COM2014  Programming        3      A
+    MAT2001         Math        3      F
+
+Total number of credits:              11
+Mid-Semester GPA:                1.09091
+
+*****************************************
+Selda Capar need to pay the tuition to see
+the courses and the grades.
+Total fee:                         1380$
+
+*****************************************
+Student Name:                Temel Orman
+Student ID:                        14043
+Number of courses enrolled:            3
+
+  Course No  Course Name  Credits  Grade
+-----------------------------------------
+    COM2004     Automata        3      B
+    COM2014  Programming        1      A
+    HIS2003      History        1      C
+
+Total number of credits:               5
+Mid-Semester GPA:                      3
+
+*****************************************
+Student Name:               Hidayet Atay
+Student ID:                        14086
+Number of courses enrolled:            5
+
+  Course No  Course Name  Credits  Grade
+-----------------------------------------
+    BIL2016   Statistics        4      B
+    COM2004     Automata        2      F
+    COM2014  Programming        2      C
+    HIS2003      History        4      D
+    MAT2001         Math        3      A
+
+Total number of credits:              15
+Mid-Semester GPA:                2.13333
+
+*****************************************

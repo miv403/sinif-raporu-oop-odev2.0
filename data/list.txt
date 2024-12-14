@@ -1,0 +1,30 @@
+5 345
+Ceylan Adiyaman 13890 Y 4
+Algorithms BIL2014 4 F
+History HIS2003 2 A
+Programming COM2014 3 C
+Math MAT2001 1 C
+---
+Nurullah Engin 13945 N 5
+Automata COM2004 3 F
+Algorithms BIL2014 1 F
+Math MAT2001 3 F
+Statistics BIL2016 1 F
+Programming COM2014 3 A
+---
+Hidayet Atay 14007 N 2
+Statistics BIL2016 1 F
+Programming COM2014 3 F
+---
+Hidayet Atay 14043 N 3
+History HIS2003 1 B
+Automata COM2004 3 B
+Programming COM2014 1 B
+---
+Hidayet Atay 14086 N 5
+History HIS2003 4 D
+Automata COM2004 2 F
+Math MAT2001 3 B
+Statistics BIL2016 4 B
+Programming COM2014 2 B
+---

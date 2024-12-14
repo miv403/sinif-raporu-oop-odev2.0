@@ -1,5 +1,8 @@
 # İKİNCİ ZORUNLU ÖDEV
 
+- [x] renkler
+- [ ] yorum satırları
+
 C++ programlama dili kullanarak sınıf, kalıtım (inheritance) ve birleşim (composition) kullanımı
 hakkında pratiğe dayalı bir deneyim sunmayı amaçlamaktadır. Ödevle ilgili önemli bilgiler
 aşağıda verilmektedir.

@@ -1,4 +1,4 @@
-3 345
+8 345
 Lisa Miller 890238 N 4
 Mathematics MTH345 4 A
 Physics PHY357 3 B
@@ -15,4 +15,33 @@ Ziya Mandirali 425422 Y 3
 DiglDesign COM2007 3 A
 ElecCirc BIL2007 2 A
 OOP COM2009 3 A
+---
+Ceylan Adiyaman 13890 Y 4
+Algorithms BIL2014 4 F
+History HIS2003 2 A
+Programming COM2014 3 C
+Math MAT2001 1 C
+---
+Nurullah Engin 13945 Y 5
+Automata COM2004 3 F
+Algorithms BIL2014 1 F
+Math MAT2001 3 F
+Statistics BIL2016 1 F
+Programming COM2014 3 A
+---
+Selda Capar 14007 N 2
+Statistics BIL2016 1 F
+Programming COM2014 3 F
+---
+Temel Orman 14043 Y 3
+History HIS2003 1 C
+Automata COM2004 3 B
+Programming COM2014 1 A
+---
+Hidayet Atay 14086 Y 5
+History HIS2003 4 D
+Automata COM2004 2 F
+Math MAT2001 3 A
+Statistics BIL2016 4 B
+Programming COM2014 2 C
 ---

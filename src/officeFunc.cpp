@@ -1,7 +1,9 @@
 #include "office.h"
 #include "studentType.h"
+#include "studentFunc.cpp"
 #include <cstddef>
 #include <fstream>
+#include <iomanip>
 #include <string>
 #include <iostream>
 
@@ -112,15 +114,23 @@ TokenContainer* Office::parseLine(string& line) {
 }
 
 void Office::print() const{
+    cout << endl << "There are " << CYAN << numberOfStudents << RESET << " students.\n\n";
+
     for(int i=0; i < numberOfStudents; ++i){
         students[i].print(price);
         cout << endl;
+
+        cout << BLUE << setw(41) << setfill('*') << "" << RESET<< setfill(' ') << endl;
     }
 }
 
 void Office::print(ofstream& file) const{
+    
+
     for(int i=0; i< numberOfStudents; ++i){
         students[i].print(file, price);
         file << endl;
+
+        file << setw(41) << setfill('*') << "" << setfill(' ') << endl;
     }
 }

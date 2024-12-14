@@ -83,9 +83,9 @@ void StudentType::print(const int& price){
         cout << "Mid-Semester GPA: " << setw(22) <<getGPA() << endl;
 
     }else {
-        cout << firstName << " " <<lastName
+        cout << YELLOW << firstName << " " << lastName << RESET
         << " need to pay the tuition to see\nthe courses and the grades.\n"
-        << "Total fee: " << setw(28) << billingAmount(price) << "$"<< endl;
+        << "Total fee: " << setw(28) << BGREEN << billingAmount(price)  << GREEN << "$" << RESET << endl;
     }
 
 }
@@ -113,7 +113,7 @@ void StudentType::print(ofstream& file, const int& price){
         file << "Mid-Semester GPA: " << setw(22) << getGPA() << endl;
 
     }else {
-        file << firstName << " "<<lastName
+        file << firstName << " " << lastName
         << " need to pay the tuition to see\nthe courses and the grades.\n"
         << "Total fee: " << setw(28) << billingAmount(price) << "$"<< endl;
     }

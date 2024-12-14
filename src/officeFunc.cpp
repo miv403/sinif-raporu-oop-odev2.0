@@ -7,14 +7,30 @@
 
 Office::Office(ifstream& file) {
 
+    readFile(file);
+
+}
+
+Office::~Office() {
+    #ifdef DEBUG
+    cout << "deleting: office and students." << endl;
+    #endif
+    delete [] students;
+
+}
+
+void Office::readFile(ifstream& file) {
+
     string line;
 
     getline(file, line);
 
-    TokenContainer tokens = parseLine(line); // TODO PTR
+    TokenContainer* tokens = parseLine(line); // TODO PTR
 
-    numberOfStudents = stoi(tokens.tokens[0]);
-    price = stoi(tokens.tokens[1]);
+    numberOfStudents = stoi(tokens->at(0));
+    price = stoi(tokens->at(1));
+
+    delete tokens;
 
     students = new StudentType[numberOfStudents];
 
@@ -24,45 +40,47 @@ Office::Office(ifstream& file) {
         
         tokens = parseLine(line);
 
+
             #ifdef DEBUG
-            for(int i = 0 ; i < tokens.size; ++i) { 
-                cout << tokens.at(i) << endl;
+            for(int i = 0 ; i < tokens->size(); ++i) { 
+                cout << tokens->at(i) << endl;
             }
             #endif
 
-        int courseCount = stoi(tokens.at(4));
+        int courseCount = stoi(tokens->at(4));
 
-        
-
-        students[i].setInfo(tokens.at(0),           //name
-                            tokens.at(1),           //lastname
-                            tokens.at(2),           //id
-                            tokens.at(3).at(0), //isPaid
+        students[i].setInfo(tokens->at(0),           //name
+                            tokens->at(1),           //lastname
+                            tokens->at(2),           //id
+                            tokens->at(3).at(0), //isPaid
                             courseCount);               //numberOfCourse
+
+        delete tokens;
     
         for(size_t j = 0; j < courseCount; ++j) {
 
             getline(file, line);
 
             tokens = parseLine(line);
+
             #ifdef DEBUG
             for(int i = 0 ; i < tokens.size; ++i) { 
-                cout << tokens.at(i) << endl;
+                cout << tokens->at(i) << endl;
             }
             #endif
-            students[i].setCourse(tokens.at(0),
-                                    tokens.at(1),
-                                    stoi(tokens.at(2)),
-                                    tokens.at(3).at(0),
+            students[i].setCourse(tokens->at(0),
+                                    tokens->at(1),
+                                    stoi(tokens->at(2)),
+                                    tokens->at(3).at(0),
                                     j);
-
+            
+            delete tokens;
         }
-
         getline(file, line); // --- atlamak için
     }
 }
 
-TokenContainer Office::parseLine(string& line) {
+TokenContainer* Office::parseLine(string& line) {
 
     string lineCopy = line;
 
@@ -79,21 +97,20 @@ TokenContainer Office::parseLine(string& line) {
 
     string* tokens = new string[tokenCount];
 
-    // alınan satırın boşluk ile ayrılarak vektöre eklenmesi
     pos = 0;
-
-    size_t i = 0;
-
-    while((pos = line.find(delimiter)) != string::npos) {
+    size_t i{};
+    for(i = 0;
+        ((pos = line.find(delimiter)) != string::npos);
+        ++i) {
         token = line.substr(0, pos);
         tokens[i] = token;
         line.erase(0, pos + delimiter.length());
-        i++;
     }
     tokens[i] = line; 
 
-    return {tokens, tokenCount};
+    TokenContainer* ret = new TokenContainer(tokens, tokenCount);
 
+    return ret;
 }
 
 void Office::print(){

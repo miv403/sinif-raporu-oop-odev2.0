@@ -13,6 +13,7 @@ class StudentType : public PersonType {
                 string = "",                // öğrenci numarası
                 char = '*',               // isTuitionPaid
                 size_t = 0);            // numberOfCourses
+    ~StudentType();
 
     void setInfo(string,
                 string,              // ad soyad

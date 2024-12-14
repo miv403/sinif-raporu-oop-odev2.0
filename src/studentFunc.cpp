@@ -15,6 +15,13 @@ StudentType::StudentType(string firstName,
 
 }
 
+StudentType::~StudentType() {
+    #ifdef DEBUG
+    cout << "deleting: Student + coursesEnrolled" << endl;
+    #endif
+    delete [] coursesEnrolled;
+}
+
 void StudentType::setCourse(string courseName,
                             string courseNo,
                             int courseCredits,
@@ -28,14 +35,7 @@ void StudentType::setCourse(string courseName,
 
 }
 
-/*
-StudentType::StudentType(string first, string last)
-    : PersonType(first, last){
-
-}
-*/
-
-void StudentType::setInfo(string first, string last, string no, char paid, size_t j){
+void StudentType::setInfo(string first, string last, string no, char paid, size_t j){ // TODO referans ile argüman alma
     firstName=first;
     lastName=last;
     sID=no;

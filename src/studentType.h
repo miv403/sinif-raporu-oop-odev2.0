@@ -24,8 +24,6 @@ class StudentType : public PersonType {
     void setName();
     string getName();
 
-
-
     void setCourse(string,
                     string,
                     int, 

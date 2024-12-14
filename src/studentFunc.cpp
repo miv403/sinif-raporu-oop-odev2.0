@@ -1,5 +1,5 @@
-#include "courseTypeFunc.cpp"
 #include "studentType.h"
+#include "courseFunc.cpp"
 #include "personFunc.cpp"
 #include <iostream>
 #include <fstream>

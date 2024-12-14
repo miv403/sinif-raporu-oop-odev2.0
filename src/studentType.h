@@ -8,38 +8,38 @@ class StudentType : public PersonType {
 
     public:
 
-    StudentType(string = "",
-                string = "",              // ad soyad
-                string = "",                // öğrenci numarası
-                char = '*',               // isTuitionPaid
-                size_t = 0);            // numberOfCourses
+    StudentType(const string& = "",    // ad soyad
+                const string& = "",    // öğrenci numarası           
+                const string& = "",    // isTuitionPaid                
+                const char& = '*',     // numberOfCourses                
+                const size_t& = 0);            
+
     ~StudentType();
 
-    void setInfo(string,
-                string,              // ad soyad
-                string,                // öğrenci numarası
-                char,               // isTuitionPaid
-                size_t);
+    void setInfo(   const string&,      // ad soyad
+                    const string&,      // öğrenci numarası
+                    const string&,      // isTuitionPaid
+                    const char&,
+                    const size_t&);
 
-    void setName();
-    string getName();
+    void setCourse( const string&,
+                    const string&,
+                    const int&,
+                    const char&,
+                    const size_t&);      // index number
 
-    void setCourse(string,
-                    string,
-                    int, 
-                    char,
-                    size_t i);
+    void setName();     // FIXME kullanılmıyor setName()
+    string getName();   // FIXME kullanılmıyor getName()
 
-    void print(int);
-    void print(ofstream&, int);
+    void print(const int&);
+    void print(ofstream&, const int&);
 
     private:
 
-    int billingAmount(int);     // 5. fatura tutarının hesaplanması
     void sortCourses();
-    double getGPA();            // not ortalama hesaplama
-    double totalCredits();        // toplam kredi saat hesaplama
-
+    double totalCredits() const;        // toplam kredi saat hesaplama
+    int billingAmount(const int&) const;     // 5. fatura tutarının hesaplanması
+    double getGPA() const;            // not ortalama hesaplama
 
     string sID;
     size_t numberOfCourses;

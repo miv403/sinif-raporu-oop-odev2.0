@@ -5,15 +5,15 @@
 #include <fstream>
 #include <cstddef>
 
-StudentType::StudentType(string firstName,
-                            string lastName,
-                            string sID,
-                            char isPaid,
-                            size_t numberOfCourses)
-    : PersonType(firstName, lastName),
-    sID(sID), numberOfCourses(numberOfCourses){
-
-}
+StudentType::StudentType(   const string& firstName,
+                            const string& lastName,
+                            const string& sID,
+                            const char& isPaid,
+                            const size_t& numberOfCourses)
+    :   PersonType(firstName,
+        lastName),
+        sID(sID),
+        numberOfCourses(numberOfCourses) { }
 
 StudentType::~StudentType() {
     #ifdef DEBUG
@@ -22,20 +22,11 @@ StudentType::~StudentType() {
     delete [] coursesEnrolled;
 }
 
-void StudentType::setCourse(string courseName,
-                            string courseNo,
-                            int courseCredits,
-                            char courseGrade,
-                            size_t i) {
-
-    coursesEnrolled[i].setCourseInfo(courseName,
-                                    courseNo,
-                                    courseCredits,
-                                    courseGrade);
-
-}
-
-void StudentType::setInfo(string first, string last, string no, char paid, size_t j){ // TODO referans ile argüman alma
+void StudentType::setInfo(  const string& first,
+                            const string& last,
+                            const string&no,
+                            const char& paid,
+                            const size_t& j){ 
     firstName=first;
     lastName=last;
     sID=no;
@@ -45,7 +36,88 @@ void StudentType::setInfo(string first, string last, string no, char paid, size_
     coursesEnrolled = new CourseType[numberOfCourses];
 }
 
-double StudentType::getGPA() {
+void StudentType::setCourse(const string& courseName,
+                            const string& courseNo,
+                            const int& courseCredits,
+                            const char& courseGrade,
+                            const size_t& i) {
+
+    coursesEnrolled[i].setCourseInfo(courseName,
+                                    courseNo,
+                                    courseCredits,
+                                    courseGrade);
+
+}
+
+void StudentType::print(const int& price){
+
+    sortCourses();
+
+    if(isTuitionPaid){  
+        cout<<"Student Name: " <<firstName << " " << lastName << endl; 
+        cout << "Student ID: " << sID << endl;
+        cout << "Number of courses enrolled: " << numberOfCourses << endl;
+        cout << "Course No Course Name Credits Grade" << endl;
+        for(int i=0; i< numberOfCourses; ++i){
+            coursesEnrolled[i].print();
+        }
+        cout << "Total number of credits: " << totalCredits() << endl; 
+        cout << "Mid-Semester GPA: " << getGPA() << endl;
+
+    }else {
+        cout <<firstName << " "<<lastName<< " need to pay the tuition to see the courses and the grades. Total fee: " << billingAmount(price)  << "$"<< endl;
+    }
+}
+
+void StudentType::print(ofstream& file, const int& price){
+
+    sortCourses();
+    // TODO hizalama
+    if(isTuitionPaid){  
+        file <<"Student Name: " <<firstName << " " << lastName << endl; 
+        file << "Student ID: " << sID << endl;
+        file << "Number of courses enrolled: " << numberOfCourses << endl;
+        file << endl << "Course No Course Name Credits Grade" << endl << endl;
+        // file << -----------;
+
+        for(int i=0; i< numberOfCourses; ++i){
+            coursesEnrolled[i].print(file);
+        }
+        file << "Total number of credits: " << totalCredits() << endl; 
+        file << "Mid-Semester GPA: " << getGPA() << endl;
+
+    }else {
+        file << firstName << " "<<lastName<< " need to pay the tuition to see the courses and the grades. Total fee: " << billingAmount(price)  << "$"<< endl;
+    }
+}
+
+void StudentType::sortCourses() {
+
+    bool swapped;
+    for (int i = 0; i < numberOfCourses - 1; i++) {
+        swapped = false;
+        for (int j = 0; j < numberOfCourses - i - 1; j++) {
+            if (coursesEnrolled[j].getCourseNumber() > coursesEnrolled[j + 1].getCourseNumber()) {
+                swap(coursesEnrolled[j], coursesEnrolled[j + 1]);
+                swapped = true;
+            }
+        }
+        if (!swapped)
+            break;
+    }
+}
+
+double StudentType::totalCredits() const {
+    double total= 0;
+
+    for(size_t i = 0; i < numberOfCourses; ++i) {
+        total += coursesEnrolled[i].getCredits();
+    }
+
+    return total;
+}
+
+double StudentType::getGPA() const {
 
     double totalPoints = 0;
     for(size_t i = 0; i < numberOfCourses; ++i) {
@@ -55,85 +127,13 @@ double StudentType::getGPA() {
     }
 
     return (totalPoints / totalCredits());
-
 }
 
-double StudentType::totalCredits() {
-
-    double total= 0;
-
-    for(size_t i = 0; i < numberOfCourses; ++i) {
-        total += coursesEnrolled[i].getCredits();
-    }
-
-    return total;
-
-}
-
-int StudentType::billingAmount(int price){
+int StudentType::billingAmount(const int& price) const{
     int bill=0;
     bill=price*totalCredits();
     return bill;
 }
 
-void StudentType::print(int price){
 
 
-    sortCourses();
-
-    if(isTuitionPaid){  
-    cout<<"Student Name: " <<firstName << " " << lastName << endl; 
-    cout << "Student ID: " << sID << endl;
-    cout << "Number of courses enrolled: " << numberOfCourses << endl;
-    cout << "Course No Course Name Credits Grade" << endl;
-    for(int i=0; i< numberOfCourses; ++i){
-        coursesEnrolled[i].print();
-    }
-    cout << "Total number of credits: " << totalCredits() << endl; 
-    cout << "Mid-Semester GPA: " << getGPA() << endl;
-    }
-
-    else{
-        cout <<firstName << " "<<lastName<< " need to pay the tuition to see the courses and the grades. Total fee: " << billingAmount(price)  << "$"<< endl;
-    }
-}
-void StudentType::print(ofstream& file, int price){
-
-    sortCourses();
-
-    if(isTuitionPaid){  
-    file <<"Student Name: " <<firstName << " " << lastName << endl; 
-    file << "Student ID: " << sID << endl;
-    file << "Number of courses enrolled: " << numberOfCourses << endl;
-    file << "Course No Course Name Credits Grade" << endl;
-    for(int i=0; i< numberOfCourses; ++i){
-        coursesEnrolled[i].print(file);
-    }
-    file << "Total number of credits: " << totalCredits() << endl; 
-    file << "Mid-Semester GPA: " << getGPA() << endl;
-    }
-
-    else{
-        file <<firstName << " "<<lastName<< " need to pay the tuition to see the courses and the grades. Total fee: " << billingAmount(price)  << "$"<< endl;
-    }
-}
-
-void StudentType::sortCourses() {
-
-    bool swapped;
-
-    for (int i = 0; i < numberOfCourses - 1; i++) {
-        swapped = false;
-        for (int j = 0; j < numberOfCourses - i - 1; j++) {
-            if (coursesEnrolled[j].getCourseNumber() > coursesEnrolled[j + 1].getCourseNumber()) {
-                swap(coursesEnrolled[j], coursesEnrolled[j + 1]);
-                swapped = true;
-            }
-        }
-
-        // If no two elements were swapped, then break
-        if (!swapped)
-            break;
-    }
-
-}

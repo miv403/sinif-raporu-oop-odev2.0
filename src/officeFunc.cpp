@@ -6,9 +6,7 @@
 #include <iostream>
 
 Office::Office(ifstream& file) {
-
     readFile(file);
-
 }
 
 Office::~Office() {
@@ -113,14 +111,14 @@ TokenContainer* Office::parseLine(string& line) {
     return ret;
 }
 
-void Office::print(){
+void Office::print() const{
     for(int i=0; i < numberOfStudents; ++i){
         students[i].print(price);
         cout << endl;
     }
 }
 
-void Office::print(ofstream& file){
+void Office::print(ofstream& file) const{
     for(int i=0; i< numberOfStudents; ++i){
         students[i].print(file, price);
         file << endl;

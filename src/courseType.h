@@ -9,18 +9,23 @@ class CourseType {
 
     public:
 
-    CourseType(string courseName = " ",
-                string courseNo = " ",
-                char courseGrade = '*',
-                int courseCredit = 0);
+    CourseType( const string& courseName = " ",
+                const string& courseNo = " ",
+                const char& courseGrade = '*',
+                const int& courseCredit = 0);
     ~CourseType();
 
-    void setCourseInfo(string, string, int, char);
-    void print(ofstream&); // one parameter
-    void print();    //void print(int, int); // two parameter (int geçici)
-    int getCredits();
-    string getCourseNumber();
-    int getGrade();
+    void setCourseInfo( const string&,
+                        const string&,
+                        const int&,
+                        const char&);
+
+    void print(ofstream&) const; // one parameter
+    void print() const;
+
+    int getCredits() const;
+    int getGrade() const;
+    string getCourseNumber() const;
 
     private:
                         // examples;

@@ -2,21 +2,45 @@
 #include <fstream>
 #include <iostream>
 
-CourseType::CourseType(string course, string no, char grade, int credit)
-    : courseName(course),
+CourseType::CourseType( const string& course,
+                        const string& no,
+                        const char& grade,
+                        const int& credit)
+    :   courseName(course),
         courseNo(no),
         courseGrade(grade),
         courseCredit(credit) {}
 
-string CourseType::getCourseNumber(){
-    return courseNo;
+CourseType::~CourseType(){
+    #ifdef DEBUG
+    cout << "Deleting: CourseType" << endl;
+    #endif
 }
 
-int CourseType::getCredits(){
+void CourseType::setCourseInfo( const string& name,
+                                const string& no,
+                                const int& credit,
+                                const char& grade){
+    courseName = name;
+    courseNo = no ;
+    courseCredit = credit;
+    courseGrade = grade;
+}
+
+void CourseType::print(ofstream& file) const {
+    file << courseName << " " << courseNo << " " << courseGrade << " " << courseCredit<<endl;
+}
+
+void CourseType::print() const {
+    // TODO HİZLAMA
+    cout << courseNo << " " << courseName << " " << courseCredit << " " << courseGrade<<endl;
+}
+
+int CourseType::getCredits() const{
     return courseCredit;
 }
 
-int CourseType::getGrade(){
+int CourseType::getGrade() const{
     switch (courseGrade) {
         case 'A':
             return 4;
@@ -40,29 +64,6 @@ int CourseType::getGrade(){
     }
 }
 
-void CourseType::setCourseInfo(string name,
-                                string no,
-                                int credit,
-                                char grade){
-    courseName = name;
-    courseNo = no ;
-    courseCredit = credit;
-    courseGrade = grade;
+string CourseType::getCourseNumber() const{
+    return courseNo;
 }
-
-void CourseType::print(ofstream& file){
-    file << courseName << " " << courseNo << " " << courseGrade << " " << courseCredit<<endl;
-}
-
-void CourseType::print(){
-    // TODO HİZLAMA
-    cout << courseNo << " " << courseName << " " << courseCredit << " " << courseGrade<<endl;
-}
-
-CourseType::~CourseType(){
-    #ifdef DEBUG
-    cout << "Deleting: CourseType" << endl;
-    #endif
-}
-
-

@@ -1,22 +1,31 @@
-Student Name: Lisa Miller
-Student ID: 890238
-Number of courses enrolled: 4
-Course No Course Name Credits Grade
-ComputerSci CSC478 B 3
-History HIS356 A 3
-Mathematics MTH345 A 4
-Physics PHY357 B 3
-Total number of credits: 13
-Mid-Semester GPA: 3.53846
+Lisa Miller need to pay the tuition to see
+the courses and the grades.
+Total fee:                         4485$
 
-Ahmet Emin need to pay the tuition to see the courses and the grades. Total fee: 4485$
+Student Name:                 Ahmet Emin
+Student ID:                       434340
+Number of courses enrolled:            4
 
-Student Name: Ziya Mandirali
-Student ID: 425422
-Number of courses enrolled: 2
-Course No Course Name Credits Grade
-ElectronicCircuits BIL2007 A 2
-DigitalDesign COM2007 A 3
-Total number of credits: 5
-Mid-Semester GPA: 4
+  Course No  Course Name  Credits  Grade
+-----------------------------------------
+    BIL2015     DiscMath        3      A
+    COM2009          OOP        3      A
+    ENG1001    English-I        3      C
+    FIZ1002      Physics        4      A
+
+Total number of credits:              13
+Mid-Semester GPA:                3.53846
+
+Student Name:             Ziya Mandirali
+Student ID:                       425422
+Number of courses enrolled:            3
+
+  Course No  Course Name  Credits  Grade
+-----------------------------------------
+    BIL2007     ElecCirc        2      A
+    COM2007   DiglDesign        3      A
+    COM2009          OOP        3      A
+
+Total number of credits:               8
+Mid-Semester GPA:                      4
 

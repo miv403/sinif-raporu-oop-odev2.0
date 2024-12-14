@@ -28,8 +28,8 @@ class StudentType : public PersonType {
                     const char&,
                     const size_t&);      // index number
 
-    void setName();     // FIXME kullanılmıyor setName()
-    string getName();   // FIXME kullanılmıyor getName()
+    // void setName();
+    // string getName();
 
     void print(const int&);
     void print(ofstream&, const int&);

@@ -1,6 +1,7 @@
 #include "courseType.h"
 #include <fstream>
 #include <iostream>
+#include <iomanip>
 
 CourseType::CourseType( const string& course,
                         const string& no,
@@ -28,12 +29,17 @@ void CourseType::setCourseInfo( const string& name,
 }
 
 void CourseType::print(ofstream& file) const {
-    file << courseNo << " " << courseName << " " << courseCredit << " " << courseGrade<<endl;
+    file    << setw(11) << courseNo
+            << setw(13) << courseName                
+            << setw(9)  << courseCredit              
+            << setw(7)  << courseGrade << endl;        
 }
 
 void CourseType::print() const {
-    // TODO HİZLAMA
-    cout << courseNo << " " << courseName << " " << courseCredit << " " << courseGrade<<endl;
+    cout    << setw(11) << courseNo
+            << setw(13) << courseName                
+            << setw(9)  << courseCredit              
+            << setw(7)  << courseGrade << endl;        
 }
 
 int CourseType::getCredits() const{

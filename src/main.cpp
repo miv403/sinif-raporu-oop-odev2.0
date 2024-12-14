@@ -17,6 +17,6 @@ int main() {
     ofstream outputFile(CIKTI);
 
     office.print(outputFile);
-
+    office.print();
     return 0;
 }

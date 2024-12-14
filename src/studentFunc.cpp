@@ -4,6 +4,17 @@
 #include <iostream>
 #include <fstream>
 #include <cstddef>
+#include <iomanip>
+
+extern const string RED = "\033[31m";
+extern const string GREEN = "\033[32m";
+extern const string YELLOW = "\033[33m";
+extern const string BLUE = "\033[34m";
+extern const string MAGENTA = "\033[35m";
+extern const string CYAN = "\033[36m";
+extern const string BCYAN = "\033[96m";
+extern const string BGREEN = "\033[92m";
+extern const string RESET = "\033[0m";  // Resets to default color
 
 StudentType::StudentType(   const string& firstName,
                             const string& lastName,
@@ -52,42 +63,59 @@ void StudentType::setCourse(const string& courseName,
 void StudentType::print(const int& price){
 
     sortCourses();
+    if(isTuitionPaid){
+        cout <<"Student Name: " << setw(26) 
+            << firstName + " " + lastName << endl; 
+        cout << "Student ID: " << setw(28) << sID << endl;
+        cout << "Number of courses enrolled: " << setw(12) 
+            << numberOfCourses << endl;
+        cout << endl;
+        cout << setw(11) << "Course No";
+        cout << setw(13) << "Course Name";
+        cout << setw(9) << "Credits";
+        cout << setw(7) << "Grade" << endl;
+        cout << setw(41) << setfill('-') << "" << endl << setfill(' ');
 
-    if(isTuitionPaid){  
-        cout<<"Student Name: " <<firstName << " " << lastName << endl; 
-        cout << "Student ID: " << sID << endl;
-        cout << "Number of courses enrolled: " << numberOfCourses << endl;
-        cout << "Course No Course Name Credits Grade" << endl;
         for(int i=0; i< numberOfCourses; ++i){
             coursesEnrolled[i].print();
         }
-        cout << "Total number of credits: " << totalCredits() << endl; 
-        cout << "Mid-Semester GPA: " << getGPA() << endl;
+        cout << endl << "Total number of credits: " << setw(15) << totalCredits() << endl; 
+        cout << "Mid-Semester GPA: " << setw(22) <<getGPA() << endl;
 
     }else {
-        cout <<firstName << " "<<lastName<< " need to pay the tuition to see the courses and the grades. Total fee: " << billingAmount(price)  << "$"<< endl;
+        cout << firstName << " " <<lastName
+        << " need to pay the tuition to see\nthe courses and the grades.\n"
+        << "Total fee: " << setw(28) << billingAmount(price) << "$"<< endl;
     }
+
 }
 
 void StudentType::print(ofstream& file, const int& price){
 
     sortCourses();
-    // TODO hizalama
-    if(isTuitionPaid){  
-        file <<"Student Name: " <<firstName << " " << lastName << endl; 
-        file << "Student ID: " << sID << endl;
-        file << "Number of courses enrolled: " << numberOfCourses << endl;
-        file << endl << "Course No Course Name Credits Grade" << endl << endl;
-        // file << -----------;
+    if(isTuitionPaid){
+        file <<"Student Name: " << setw(26) 
+            << firstName + " " + lastName << endl; 
+        file << "Student ID: " << setw(28) << sID << endl;
+        file << "Number of courses enrolled: " << setw(12) 
+            << numberOfCourses << endl;
+        file << endl;
+        file << setw(11) << "Course No";
+        file << setw(13) << "Course Name";
+        file << setw(9) << "Credits";
+        file << setw(7) << "Grade" << endl;
+        file << setw(41) << setfill('-') << "" << endl << setfill(' ');
 
         for(int i=0; i< numberOfCourses; ++i){
             coursesEnrolled[i].print(file);
         }
-        file << "Total number of credits: " << totalCredits() << endl; 
-        file << "Mid-Semester GPA: " << getGPA() << endl;
+        file << endl << "Total number of credits: " << setw(15) << totalCredits() << endl; 
+        file << "Mid-Semester GPA: " << setw(22) << getGPA() << endl;
 
     }else {
-        file << firstName << " "<<lastName<< " need to pay the tuition to see the courses and the grades. Total fee: " << billingAmount(price)  << "$"<< endl;
+        file << firstName << " "<<lastName
+        << " need to pay the tuition to see\nthe courses and the grades.\n"
+        << "Total fee: " << setw(28) << billingAmount(price) << "$"<< endl;
     }
 }
 
